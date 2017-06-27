@@ -24,5 +24,5 @@ Either single sunset or sunrise value expressed as minutes of the day, or a data
 Calculate the time of sunrise and sunset based on date and location.
 }
 \examples{
-solar_calc(latitude = 53.6955847, longitude = -2.0015868, excel_date = norm2excel(norm_date = '27/06/2017'), time_zone = 1, return_var = 'both')
+solar_calc(latitude = 53.6955847, longitude = -2.0015868, excel_date = 42913, time_zone = 1, return_var = 'both')
 }
