@@ -33,7 +33,7 @@ solar_calc <- function(latitude, longitude, excel_date, time_zone, return_var = 
 
     # Define which results to return
     if (tolower(return_var) == "both") {
-        result <- dataframe(sunrise = sunrise, sunset = sunset)
+        result <- data.frame(sunrise = sunrise, sunset = sunset)
     } else if (tolower(return_var) == "sunrise") {
         result <- sunrise
     } else if (tolower(return_var) == "sunset") {
