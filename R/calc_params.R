@@ -1,16 +1,10 @@
-julian_day <- function(excel_date, time_zone) {
-    result <- excel_date + 2415018.5 - (time_zone/24)
-    
-    return(result)
-}
-
 
 julian_century <- function(julian_day) {
-    result <- (julian_day - 2451545)/36525
-    
+    # Define total days in one Julian century
+    century_days <- 36525
+    result <- (julian_day - 2451545)/century_days
     return(result)
 }
-
 
 geom_mean_long <- function(julian_century) {
     numerator <- 280.46646 + (julian_century * (36000.76983 + julian_century * 0.0003032))
@@ -131,8 +125,8 @@ ha_sunrise <- function(latitude, sun_declin) {
     return(result)
 }
 
-solar_noon <- function(longitude, eq_time, timeZone) {
-    result <- 720 - (4 * longitude) - eq_time + (timeZone * 60)
+solar_noon <- function(longitude, eq_time, tz) {
+    result <- 720 - (4 * longitude) - eq_time + (tz * 60)
     
     return(result)
 }

@@ -4,25 +4,30 @@
 \alias{solar_calc}
 \title{solar_calc}
 \usage{
-solar_calc(latitude, longitude, excel_date, time_zone, return_var = "both")
+solar_calc(latitude, longitude, focal_date, format = "\%Y-\%m-\%d", tz,
+  return_var = "both")
 }
 \arguments{
 \item{latitude}{Latitude in decimal degrees.}
 
 \item{longitude}{Longitude in decimal degrees.}
 
-\item{excel_date}{Date in MS Excel format. See https://github.com/rasenior/ConvertDateTime for functions to convert dates into Excel format.}
+\item{focal_date}{Date as a character.}
 
-\item{time_zone}{Time zone (numeric), taking account of Daylight saving time where applicable.}
+\item{format}{Format of the date supplied. Defaults to '\%Y-\%m-\%d'.}
+
+\item{tz}{Time zone expressed as the time difference compared to UTC, in a character format e.g. '+0100' or '-0830'.  Must take account of Daylight saving time, where applicable. Must include '+' or '-' to denote direction of the time difference.}
 
 \item{return_var}{Variables to return: 'both', 'sunrise' or 'sunset'. Defaults to 'both'.}
 }
 \value{
-Either single sunset or sunrise value expressed as minutes of the day, or a dataframe with both variables combined.
+Either single result for sunset or sunrise, or a dataframe containing both variables. For simplicity, time is always reported in the format '%H:%M', in the same time zone as the location of interest.
 }
 \description{
 Calculate the time of sunrise and sunset based on date and location.
 }
 \examples{
-solar_calc(latitude = 53.6955847, longitude = -2.0015868, excel_date = 42913, time_zone = 1, return_var = 'both')
+solar_calc(latitude = 53.6955847, longitude = -2.0015868, focal_date = '26/06/2017', format = '\%d/\%m/\%Y', tz = '+0100', return_var = 'both')
+solar_calc(latitude = 52.2099218, longitude = 0.1156409, focal_date = '1950-30-12', format = '\%Y-\%d-\%m', tz = '+0000', return_var = 'sunrise')
+solar_calc(latitude = 5.9790166, longitude = 116.0711132, focal_date = '01.04.2001', format = '\%d.\%m.\%Y', tz = '+0800', return_var = 'Sunset')
 }
