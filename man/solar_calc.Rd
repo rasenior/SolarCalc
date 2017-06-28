@@ -16,12 +16,12 @@ solar_calc(latitude, longitude, focal_date, format = "\%Y-\%m-\%d", tz,
 
 \item{format}{Format of the date supplied. Defaults to '\%Y-\%m-\%d'.}
 
-\item{tz}{Time zone expressed as the time difference compared to UTC, in a character format e.g. '+0100' or '-0830'.  Must take account of Daylight saving time, where applicable. Must include '+' or '-' to denote direction of the time difference.}
+\item{tz}{Time zone expressed as the time difference compared to UTC, in a character format e.g. '+0100' or '-0830'.  Must be five characters, including sign of the time difference and zeros where necessary. Must take account of Daylight Saving Time, where applicable.}
 
 \item{return_var}{Variables to return: 'both', 'sunrise' or 'sunset'. Defaults to 'both'.}
 }
 \value{
-Either single result for sunset or sunrise, or a dataframe containing both variables. For simplicity, time is always reported in the format '%H:%M', in the same time zone as the location of interest.
+Either single result for sunset or sunrise, or a dataframe containing both variables. For simplicity, time is always reported in the format '\%H:\%M', and in the same time zone as the location of interest.
 }
 \description{
 Calculate the time of sunrise and sunset based on date and location.
