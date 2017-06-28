@@ -1,5 +1,5 @@
 # SolarCalc
 
-Adaptation of NOAA solar calculations for Excel (https://www.esrl.noaa.gov/gmd/grad/solcalc/calcdetails.html). Estimates time of sunrise and sunset based on location and date. 
+Implementation of NOAA solar calculations  (https://www.esrl.noaa.gov/gmd/grad/solcalc/calcdetails.html) in R. Estimates time of sunrise and sunset based on location and date.
 
-Currently time is returned as minutes of the day. This can be converted to a more conventional time format using the function `mins2time` in https://github.com/rasenior/ConvertDateTime.
+Note that there may be very slight differences in timings (~ 1 minute) compared to those returned in the NOAA Excel spreadsheet. This is because NOAA incorporate time in their calculation of Julian day, whereas this package uses only the date and the time zone.
