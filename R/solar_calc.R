@@ -5,9 +5,9 @@
 #' @param longitude Longitude in decimal degrees.
 #' @param focal_date Date as a character.
 #' @param format Format of the date supplied. Defaults to '\%Y-\%m-\%d'.
-#' @param tz Time zone expressed as the time difference compared to UTC, in a character format e.g. '+0100' or '-0830'.  Must take account of Daylight saving time, where applicable. Must include '+' or '-' to denote direction of the time difference.
+#' @param tz Time zone expressed as the time difference compared to UTC, in a character format e.g. '+0100' or '-0830'.  Must be five characters, including sign of the time difference and zeros where necessary. Must take account of Daylight Saving Time, where applicable. 
 #' @param return_var Variables to return: 'both', 'sunrise' or 'sunset'. Defaults to 'both'.
-#' @return Either single result for sunset or sunrise, or a dataframe containing both variables. For simplicity, time is always reported in the format '%H:%M', in the same time zone as the location of interest.
+#' @return Either single result for sunset or sunrise, or a dataframe containing both variables. For simplicity, time is always reported in the format '\%H:\%M', and in the same time zone as the location of interest.
 #' @examples
 #' solar_calc(latitude = 53.6955847, longitude = -2.0015868, focal_date = '26/06/2017', format = '%d/%m/%Y', tz = '+0100', return_var = 'both')
 #' solar_calc(latitude = 52.2099218, longitude = 0.1156409, focal_date = '1950-30-12', format = '%Y-%d-%m', tz = '+0000', return_var = 'sunrise')
@@ -48,7 +48,8 @@ solar_calc <- function(latitude, longitude, focal_date, format = "%Y-%m-%d", tz,
         # Calculate minutes
         mins <- round(day_mins - (hour * 60), digits = 0)
         
-        # Bind as a time If everything equals zero then strptime will not report time, so it needs to be assigned manually
+        # Bind as a time If everything equals zero then strptime will not report time, so it needs to be
+        # assigned manually
         
         if (hour == 0 & mins == 0) {
             norm_time <- "00:00"

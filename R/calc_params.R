@@ -118,7 +118,8 @@ eq_time <- function(var_y, geom_mean_long, eccent_earth_orbit, geom_mean_anom) {
 }
 
 ha_sunrise <- function(latitude, sun_declin) {
-    x <- cos(deg2rad(90.833))/(cos(deg2rad(latitude)) * cos(deg2rad(sun_declin))) - tan(deg2rad(latitude)) * tan(deg2rad(sun_declin))
+    x <- cos(deg2rad(90.833))/(cos(deg2rad(latitude)) * cos(deg2rad(sun_declin))) - tan(deg2rad(latitude)) * 
+        tan(deg2rad(sun_declin))
     
     result <- rad2deg(acos(x))
     
