@@ -14,7 +14,7 @@
 #' solar_calc(latitude = 52.2099218, longitude = 0.1156409, focal_date = '1950-30-12', format = '%Y-%d-%m', tz = '+0000', return_var = 'sunrise')
 #' solar_calc(latitude = 5.9790166, longitude = 116.0711132, focal_date = '01.04.2001', format = '%d.%m.%Y', tz = '+0800', return_var = 'Sunset')
 solar_calc <- function(latitude, longitude, focal_date, format = "%Y-%m-%d", tz,
-                       return_var = "both", return_format = "date") {
+                       return_var = "both", return_format = "norm_time") {
     jd <- julian(as.Date(paste(focal_date, tz), paste(format, "%z")), -2440588)[1]
     jc <- julian_century(jd)
     gml <- geom_mean_long(jc)
