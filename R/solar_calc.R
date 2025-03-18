@@ -48,7 +48,7 @@ solar_calc <- function(latitude, longitude, focal_date, format = "%Y-%m-%d", tz,
         hour <- floor(day_mins/60)
 
         # Calculate minutes
-        mins <- round(day_mins - (hour * 60), digits = 0)
+        mins <- floor(day_mins - (hour * 60))
 
         # Bind as a time If everything equals zero then strptime will not report time, so it needs to be
         # assigned manually
